@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   userEmail!:string
   constructor(private authService:AuthService) {}
   ngOnInit(){
+    this.authService.isAuthenticated()
     this.authService.userSub.subscribe(data=>{
       this.userEmail=data?.email!
     })

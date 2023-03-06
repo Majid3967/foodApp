@@ -23,13 +23,15 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-segment [scrollable]="true" (ionChange)="onFilterUpdate($event)" value="0">
-          <ion-segment-button value="0">All</ion-segment-button>
-          <ion-segment-button value="1">Starters</ion-segment-button>
-          <ion-segment-button value="2">Sandwichs</ion-segment-button>
-          <ion-segment-button value="3">Pizzas</ion-segment-button>
-          <ion-segment-button value="4">Add Ons</ion-segment-button>
-        </ion-segment>
+        <!-- <ion-item-divider sticky> -->
+          <ion-segment [scrollable]="true" (ionChange)="onFilterUpdate($event)" value="0" sticky>
+            <ion-segment-button value="0">All</ion-segment-button>
+            <ion-segment-button value="1">Starters</ion-segment-button>
+            <ion-segment-button value="2">Sandwichs</ion-segment-button>
+            <ion-segment-button value="3">Pizzas</ion-segment-button>
+            <ion-segment-button value="4">Add Ons</ion-segment-button>
+          </ion-segment>
+        <!-- </ion-item-divider> -->
       </ion-col>
     </ion-row>
     <app-food-item-list [foodItems]="foodItems"></app-food-item-list>

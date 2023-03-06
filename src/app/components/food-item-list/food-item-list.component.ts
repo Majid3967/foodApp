@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
 import { CartItem } from 'src/app/models/cartItem';
 import { FoodItem } from 'src/app/models/foodItem';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,7 +19,8 @@ export class FoodItemListComponent implements OnInit {
     private cartItemService: CartItemService,
     private authService: AuthService,
     private alertCtrl: AlertController,
-    private router:Router
+    private router:Router,
+    private toast:ToastController
   ) {}
 
   ngOnInit() {}
@@ -66,10 +67,21 @@ export class FoodItemListComponent implements OnInit {
           resData.data.quantity,
           ''
         );
-        console.log(cartItem);
+        // console.log(cartItem);
         this.cartItemService.addCartItem(cartItem).subscribe((resData) => {
           console.log(resData);
         });
+
+        this.toast.create({
+          message:'Item has been added to Cart',
+          duration:1500,
+          position:'bottom',
+          icon:'trash',
+          color:'primary',
+          cssClass:'toast-style'
+        }).then(toastItem=>{
+          toastItem.present();
+        })
       });
   }
 }

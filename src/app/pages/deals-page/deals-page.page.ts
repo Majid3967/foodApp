@@ -17,12 +17,10 @@ export class DealsPagePage implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    setTimeout(() => {
       this.route.data.subscribe(({ foodItems }) => {
         this.dealItems = foodItems;
       });
       this.isLoading = false;
-    }, 2000);
   }
 
   onCart(){
