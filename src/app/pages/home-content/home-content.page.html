@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Home Content</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/cart" (click)="onCart()">
+        <ion-icon name="cart" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <app-main-slider></app-main-slider>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-segment [scrollable]="true" (ionChange)="onFilterUpdate($event)" value="0">
+          <ion-segment-button value="0">All</ion-segment-button>
+          <ion-segment-button value="1">Starters</ion-segment-button>
+          <ion-segment-button value="2">Sandwichs</ion-segment-button>
+          <ion-segment-button value="3">Pizzas</ion-segment-button>
+          <ion-segment-button value="4">Add Ons</ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+    <app-food-item-list [foodItems]="foodItems"></app-food-item-list>
+    <div class="ion-text-center" *ngIf="isLoading">
+      <ion-spinner color="primary" name="crescent"></ion-spinner>
+    </div>
+  </ion-grid>
+</ion-content>

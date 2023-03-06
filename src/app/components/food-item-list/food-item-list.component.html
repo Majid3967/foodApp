@@ -1,0 +1,27 @@
+<ion-row *ngFor="let item of foodItems">
+  <ion-col>
+    <ion-card [routerLink]="['/','home','tabs','home-content',item.id]">
+      <ion-grid class="ion-no-padding">
+        <ion-row class="ion-align-items-center">
+          <ion-col>
+            <ion-img [src]="item.imageUrl"></ion-img>
+          </ion-col>
+          <ion-col class="ion-padding">
+            <ion-card-title color="primary">{{item.title}}
+            </ion-card-title>
+            <ion-card-subtitle>
+              <span>{{item.description.slice(0,50)}}</span>
+            </ion-card-subtitle>
+            <ion-text color="secondary">
+                <div>{{item.price | currency}}</div>
+            </ion-text>
+            <ion-button type="button" color="tertiary" size="medium" (click)="onAddCart($event,item)">
+              <ion-icon name="cart" slot="start"></ion-icon>
+              <span>Add</span>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-col>
+</ion-row>

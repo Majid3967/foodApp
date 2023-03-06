@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{foodItem.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="foodItem.imageUrl"></ion-img>
+        <ion-text class="ion-text-center">
+          <h3>{{foodItem.title}}</h3>
+        </ion-text>
+        <ion-text class="ion-text-center" color="secondary"><div>{{foodItem.price | currency}}</div></ion-text>
+        <ion-text class="ion-text-center">
+          <p>{{foodItem.description}}</p>
+        </ion-text>
+        <ion-button expand="block">
+          <ion-icon name="cart" slot="start"></ion-icon>
+          <span>Add to Cart</span>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

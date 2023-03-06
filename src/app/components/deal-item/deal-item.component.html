@@ -1,0 +1,21 @@
+<ion-row class="ion-align-items-center" *ngFor="let item of dealItems">
+  <ion-col>
+    <ion-card>
+      <ion-grid class="ion-no-padding">
+        <ion-row class="ion-align-items-center">
+          <ion-col>
+            <ion-img [src]="item.imageUrl"></ion-img>
+          </ion-col>
+          <ion-col class="ion-padding">
+            <ion-card-title color="primary">{{item.title}}</ion-card-title>
+            <ion-card-subtitle>{{item.description.slice(0,50)}}</ion-card-subtitle>
+            <ion-text color="secondary">
+              <s>{{item.price | currency}}</s>
+              <div>{{item.price/2 | currency}}</div>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-col>
+</ion-row>

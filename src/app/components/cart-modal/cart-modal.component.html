@@ -1,0 +1,62 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-text class="ion-text-center" color="primary">
+        <h3>{{selectedFoodItem.title}}</h3>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-img [src]="selectedFoodItem.imageUrl"></ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="6">
+      <ion-text class="ion-text-center" color="primary">
+        <h5>Quantity</h5>
+      </ion-text>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="decreaseQuantity()">
+            <ion-icon name="remove"></ion-icon>
+          </ion-button>
+          <ion-text class="ion-padding">
+            <span>{{itemCount}}</span>
+          </ion-text>
+          <ion-button (click)="increaseQuantity()">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="6">
+      <ion-text class="ion-text-center" color="primary">
+        <h5>Price</h5>
+      </ion-text>
+      <ion-row>
+        <ion-col>
+          <ion-text class="ion-text-center" color="secondary">
+            <p>{{itemCount*selectedFoodItem.price | currency}}</p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+        <ion-button (click)="onCancel()" expand="block">
+          <ion-icon name="close"></ion-icon>
+          <span>Cancel</span>
+        </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="onAddItem()" expand="block">
+        <ion-icon name="cart"></ion-icon>
+        <span>Add</span>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
