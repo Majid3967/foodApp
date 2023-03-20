@@ -69,7 +69,6 @@ export class HomeContentPage implements OnInit {
         return item.catId === '4';
       });
       this.isLoading = false;
-      // console.log(this.fetchItems)
       return;
     }
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './models/user';
+import { AlertController } from '@ionic/angular';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit{
   userEmail!:string
-  constructor(private authService:AuthService) {}
+  constructor(private authService:AuthService,private alertCtrl:AlertController) {}
   ngOnInit(){
     this.authService.isAuthenticated()
     this.authService.userSub.subscribe(data=>{
@@ -18,5 +18,12 @@ export class AppComponent implements OnInit{
   }
   onLogout(){
     this.authService.logout();
+
+    this.alertCtrl.create({
+      header:'Logout Succesfully!',
+        cssClass:'my-alert'
+    }).then(alertEl=>{
+      alertEl.present();
+    })
   }
 }

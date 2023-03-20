@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>{{foodItem.title}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +20,7 @@
         <ion-text class="ion-text-center">
           <p>{{foodItem.description}}</p>
         </ion-text>
-        <ion-button expand="block">
+        <ion-button expand="block" (click)="addToCart()">
           <ion-icon name="cart" slot="start"></ion-icon>
           <span>Add to Cart</span>
         </ion-button>

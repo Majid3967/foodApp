@@ -23,7 +23,9 @@ export class FoodItemListComponent implements OnInit {
     private toast:ToastController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // console.log(this.foodItems)
+  }
 
   onAddCart(event: any, item: FoodItem) {
     event.stopPropagation();
@@ -76,7 +78,7 @@ export class FoodItemListComponent implements OnInit {
           message:'Item has been added to Cart',
           duration:1500,
           position:'bottom',
-          icon:'trash',
+          icon:'information-circle',
           color:'primary',
           cssClass:'toast-style'
         }).then(toastItem=>{
