@@ -55,7 +55,7 @@ export class FoodItemsService {
   getAllFoodItems() {
     return this.http
       .get<FoodItem[]>(
-        'https://food-app-ionic-7c01d-default-rtdb.firebaseio.com/foodItems.json'
+        'https://LinkHere/foodItems.json'
       )
       .pipe(map(response=>{
         let foodItems = []
