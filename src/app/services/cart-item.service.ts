@@ -14,14 +14,14 @@ export class CartItemService {
     cartItem.userId = this.authService.userSub.value?.email!;
     return this.http
       .post<{ name: string }>(
-        'https://food-app-ionic-7c01d-default-rtdb.firebaseio.com/cartItems.json',
+        'https://LinkHere/cartItems.json',
         cartItem
       )
       .pipe(
         switchMap((resData) => {
           cartItem.id = resData.name;
           return this.http.patch<{ name: string }>(
-            `https://food-app-ionic-7c01d-default-rtdb.firebaseio.com/cartItems/${resData.name}.json`,
+            `https://LinkHere/cartItems/${resData.name}.json`,
             cartItem
           );
         })
