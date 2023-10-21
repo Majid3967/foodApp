@@ -16,14 +16,14 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBMNXA1ZS8Cts5BB4aAcmjzR3D2USQlGVQ',
+      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AddKey',
       { email, password, returnSecureToken: true }
     ).pipe(tap(this.handleUser.bind(this)));
   }
 
   signup(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBMNXA1ZS8Cts5BB4aAcmjzR3D2USQlGVQ',
+      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AddKey',
       { email, password, returnSecureToken: true }
     ).pipe(tap(this.handleUser.bind(this)));
   }
